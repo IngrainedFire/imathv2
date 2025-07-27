@@ -8,5 +8,16 @@ export default defineNuxtConfig({
       enabled: true
     }
   },
-  modules: ['@nuxtjs/tailwindcss']
+  modules: [
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/tailwindcss'
+  ],
+  googleFonts: {
+    families: {
+      Fredoka: [300, 400, 500, 600, 700],
+    },
+    display: 'swap',
+    download: true,
+  },
+  debug: true
 })

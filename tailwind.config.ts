@@ -10,7 +10,15 @@ const config: Config = {
     './nuxt.config.{js,ts}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary': '#1D1A19'
+      },
+      fontFamily: {
+        fredoko: ['Fredoka', 'sans-serif'],
+      }
+    },
+
   },
   plugins: [],
 }
