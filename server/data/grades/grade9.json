@@ -1,0 +1,15 @@
+{
+  "modules": [
+    {
+      "id": "module-1",
+      "name": "Counting",
+      "lessons": [
+        {
+          "id": "lesson-1",
+          "title": "Numbers 1-10",
+          "video": "safe-url.mp4"
+        }
+      ]
+    }
+  ]
+}

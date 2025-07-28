@@ -12,7 +12,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'primary': '#1D1A19'
+        'primary': '#1D1A19',
+        'light-text': '#192764'
       },
       fontFamily: {
         fredoko: ['Fredoka', 'sans-serif'],

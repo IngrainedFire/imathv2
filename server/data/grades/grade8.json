@@ -1,0 +1,138 @@
+{
+  "modules": [
+    {
+      "id": "module-1",
+      "name": "Counting",
+      "lessons": [
+        {
+          "id": "lesson-1",
+          "title": "Numbers 1-10",
+          "video": "counting-1-10.mp4"
+        },
+        {
+          "id": "lesson-2",
+          "title": "Numbers 11-20",
+          "video": "counting-11-20.mp4"
+        },
+        {
+          "id": "lesson-3",
+          "title": "Skip Counting by 2s"
+        },
+        {
+          "id": "lesson-4",
+          "title": "Skip Counting by 5s",
+          "video": "skip-counting-5s.mp4"
+        },
+        {
+          "id": "lesson-5",
+          "title": "Skip Counting by 10s",
+          "video": "skip-counting-10s.mp4"
+        },
+        {
+          "id": "lesson-6",
+          "title": "Counting Backwards"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "name": "Whole Numbers",
+      "lessons": [
+        {
+          "id": "lesson-7",
+          "title": "Understanding Place Value",
+          "video": "place-value-intro.mp4"
+        },
+        {
+          "id": "lesson-8",
+          "title": "Ones, Tens, Hundreds"
+        },
+        {
+          "id": "lesson-9",
+          "title": "Comparing Numbers",
+          "video": "comparing-numbers.mp4"
+        },
+        {
+          "id": "lesson-10",
+          "title": "Ordering Numbers"
+        },
+        {
+          "id": "lesson-11",
+          "title": "Rounding to Nearest 10",
+          "video": "rounding-10.mp4"
+        },
+        {
+          "id": "lesson-12",
+          "title": "Rounding to Nearest 100",
+          "video": "rounding-100.mp4"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "name": "Addition and Subtraction",
+      "lessons": [
+        {
+          "id": "lesson-13",
+          "title": "Basic Addition Facts",
+          "video": "addition-facts.mp4"
+        },
+        {
+          "id": "lesson-14",
+          "title": "Basic Subtraction Facts"
+        },
+        {
+          "id": "lesson-15",
+          "title": "Adding Two-Digit Numbers",
+          "video": "two-digit-addition.mp4"
+        },
+        {
+          "id": "lesson-16",
+          "title": "Subtracting Two-Digit Numbers",
+          "video": "two-digit-subtraction.mp4"
+        },
+        {
+          "id": "lesson-17",
+          "title": "Word Problems with Addition"
+        },
+        {
+          "id": "lesson-18",
+          "title": "Word Problems with Subtraction"
+        }
+      ]
+    },
+    {
+      "id": "module-4",
+      "name": "Multiplication and Division",
+      "lessons": [
+        {
+          "id": "lesson-19",
+          "title": "Introduction to Multiplication",
+          "video": "multiplication-intro.mp4"
+        },
+        {
+          "id": "lesson-20",
+          "title": "Multiplication Tables 2-5"
+        },
+        {
+          "id": "lesson-21",
+          "title": "Multiplication Tables 6-10",
+          "video": "times-tables-6-10.mp4"
+        },
+        {
+          "id": "lesson-22",
+          "title": "Introduction to Division",
+          "video": "division-intro.mp4"
+        },
+        {
+          "id": "lesson-23",
+          "title": "Division Facts"
+        },
+        {
+          "id": "lesson-24",
+          "title": "Word Problems with Multiplication and Division"
+        }
+      ]
+    }
+  ]
+}

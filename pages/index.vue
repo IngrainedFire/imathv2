@@ -2,8 +2,6 @@
 definePageMeta({
   layout: 'public'
 })
-
-const { subjects } = useSubjects()
 </script>
 
 <template>

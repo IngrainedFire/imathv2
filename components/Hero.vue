@@ -3,7 +3,7 @@
     <div id="hero-bg" >
       <div class="w-3/4 h-full absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(87,118,255,0.5)_0%,rgba(255,100,255,0)_70%)]"></div>
     </div>
-    <div id="hero-container" class="relative flex flex-col justify-center items-center h-[85vh]">
+    <div id="hero-container" class="relative flex flex-col justify-center items-center h-[calc(100vh-100px)]">
       <div id="hero-nav" class="absolute top-0 left-0 w-full flex justify-between items-center px-[43px] py-[30px]">
         <img src="/assets/logos/imath-logo-light.webp" class="h-[60px]">
         <button class="flex gap-[10px] justify-center items-center  py-[15px] px-[20px] text-[#192764] rounded-[10px]">

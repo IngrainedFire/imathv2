@@ -25,18 +25,6 @@ export const useGrades = () => {
               title: '1. The Number System',
               duration: '12:25',
               slug: 'number-system-2'
-            },
-            {
-              id: 'lesson1',
-              title: '1. The Number System',
-              duration: '12:25',
-              slug: 'number-system-1'
-            },
-            {
-              id: 'lesson2',
-              title: '1. The Number System',
-              duration: '12:25',
-              slug: 'number-system-2'
             }
           ]
         },
