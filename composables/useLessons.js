@@ -2,10 +2,14 @@
 export const useLessons = () => {
   const router = useRouter()
   
-  // Navigate to a specific lesson
-  const navigateToLesson = (lesson) => {
-    // You can customize this navigation logic based on your routing structure
-    router.push(`/lessons/${lesson.slug}`)
+  // Navigate to a specific lesson using the new breadcrumb structure
+  const navigateToLesson = (lesson, gradeId, moduleId) => {
+    // Convert IDs to URL-friendly slugs
+    const gradeSlug = gradeId.replace('grade', 'grade-')
+    const moduleSlug = moduleId.replace(/\s+/g, '-').toLowerCase()
+    const lessonSlug = lesson.slug || lesson.title.toLowerCase().replace(/\s+/g, '-')
+    
+    router.push(`/${gradeSlug}/${moduleSlug}/${lessonSlug}`)
   }
 
   // Get lesson progress (could be integrated with a progress tracking system)

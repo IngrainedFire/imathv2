@@ -18,13 +18,13 @@ export const useGrades = () => {
               id: 'lesson1',
               title: '1. The Number System',
               duration: '12:25',
-              slug: 'number-system-1'
+              slug: 'the-number-system-1'
             },
             {
               id: 'lesson2',
               title: '1. The Number System',
               duration: '12:25',
-              slug: 'number-system-2'
+              slug: 'the-number-system-2'
             }
           ]
         },

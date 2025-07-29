@@ -4,15 +4,28 @@
       <div class="w-3/4 h-full absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(87,118,255,0.5)_0%,rgba(255,100,255,0)_70%)]"></div>
     </div>
     <div id="hero-container" class="relative flex flex-col justify-center items-center h-[calc(100vh-100px)]">
+      
+      
+      
       <div id="hero-nav" class="absolute top-0 left-0 w-full flex justify-between items-center px-[43px] py-[30px]">
         <img src="/assets/logos/imath-logo-light.webp" class="h-[60px]">
-        <button class="flex gap-[10px] justify-center items-center  py-[15px] px-[20px] text-[#192764] rounded-[10px]">
-          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.5 8.5L8.5 5M5.5 8.5L8.5 12M5.5 8.5H16M14 5V2.64286C14 2.01167 13.4883 1.5 12.8571 1.5H2.57764C1.94646 1.5 1.43478 2.01167 1.43478 2.64286V14.3571C1.43478 14.9883 1.94646 15.5 2.57764 15.5H12.8571C13.4883 15.5 14 14.9883 14 14.3571V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          Login
-        </button>
+        <SignedOut>
+          <SignInButton>
+            <button class="flex gap-[10px] justify-center items-center  py-[15px] px-[20px] text-[#192764] rounded-[10px]">
+              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.5 8.5L8.5 5M5.5 8.5L8.5 12M5.5 8.5H16M14 5V2.64286C14 2.01167 13.4883 1.5 12.8571 1.5H2.57764C1.94646 1.5 1.43478 2.01167 1.43478 2.64286V14.3571C1.43478 14.9883 1.94646 15.5 2.57764 15.5H12.8571C13.4883 15.5 14 14.9883 14 14.3571V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Login
+            </button>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+          <UserButton class="w-[50px] h-[50px]"  />
+        </SignedIn>
       </div>
+
+
+
       <div id="hero-content" class="flex flex-grow flex-col justify-center items-center">
         <h1 id="hero-heading" class="font-fredoko font-[800] text-6xl text-[#192764] w-[60%] text-center">Learning Math Sucks So Watch Video’s Instead </h1>
         <div id="hero-buttons" class="w-full p-[50px] flex justify-center gap-[20px]   ">

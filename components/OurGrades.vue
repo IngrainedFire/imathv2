@@ -17,7 +17,7 @@
               : 'text-gray-400 hover:text-light-text'
           ]"
         >
-          {{ grade.name }}
+        {{ grade.name }}
         </button>
       </div>
     </div>
@@ -40,7 +40,7 @@
           <div
             v-for="lesson in module.lessons"
             :key="lesson.id"
-            @click="navigateToLesson(lesson)"
+            @click="navigateToLesson(lesson, selectedGrade, module.id)"
             class="lesson-card border-[3px] bg-white border-gray-200 hover:border-light-text rounded-lg p-6  duration-300 cursor-pointer group"
           >
             <div class="flex items-center justify-between">
@@ -60,6 +60,7 @@
     </div>
   </div>
 </template>
+
 <script setup>
 const { grades, selectedGrade, currentGrade } = useGrades()
 const { navigateToLesson } = useLessons()
