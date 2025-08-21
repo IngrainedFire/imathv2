@@ -109,22 +109,18 @@
           </div>
           <div class="flex justify-center gap-[20px]">
             <SignedOut>
-              <SignInButton>
-                <button class="flex gap-[10px] justify-center items-center  py-[15px] px-[20px] text-[#192764] rounded-[10px]">
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.5 8.5L8.5 5M5.5 8.5L8.5 12M5.5 8.5H16M14 5V2.64286C14 2.01167 13.4883 1.5 12.8571 1.5H2.57764C1.94646 1.5 1.43478 2.01167 1.43478 2.64286V14.3571C1.43478 14.9883 1.94646 15.5 2.57764 15.5H12.8571C13.4883 15.5 14 14.9883 14 14.3571V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
-                  Login
-                </button>
-              </SignInButton>
-              <SignUpButton>
-                <button class="flex gap-[10px] justify-center items-center  h-[50px] px-[20px] bg-[#192764] text-white rounded-[10px]">
-                      <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10.5 4V5.5V7M9 5.5H12M6.26048 7.28145L7.99858 12.4957C8.24526 13.2358 7.69444 14 6.91437 14H2.08563C1.30556 14 0.754741 13.2358 1.00142 12.4957L2.73952 7.28145C2.89507 6.81478 3.3318 6.5 3.82372 6.5H5.17628C5.6682 6.5 6.10493 6.81478 6.26048 7.28145ZM5.71793 3.82121L5.32166 4.20474C4.86794 4.64388 4.14408 4.63186 3.7052 4.1779L3.3344 3.79437C2.90612 3.35138 2.90612 2.64862 3.3344 2.20563L3.7052 1.8221C4.14408 1.36814 4.86794 1.35612 5.32166 1.79526L5.71793 2.17879C6.18198 2.62793 6.18198 3.37207 5.71793 3.82121Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                      </svg>
-                      Sign Up
-                  </button>
-              </SignUpButton>
+              <NuxtLink to="/sign-in" class="flex gap-[10px] justify-center items-center  py-[15px] px-[20px] text-[#192764] rounded-[10px]">
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.5 8.5L8.5 5M5.5 8.5L8.5 12M5.5 8.5H16M14 5V2.64286C14 2.01167 13.4883 1.5 12.8571 1.5H2.57764C1.94646 1.5 1.43478 2.01167 1.43478 2.64286V14.3571C1.43478 14.9883 1.94646 15.5 2.57764 15.5H12.8571C13.4883 15.5 14 14.9883 14 14.3571V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                Login
+              </NuxtLink>
+              <NuxtLink to="/sign-up" class="flex gap-[10px] justify-center items-center  h-[50px] px-[20px] bg-[#192764] text-white rounded-[10px]">
+                <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5 4V5.5V7M9 5.5H12M6.26048 7.28145L7.99858 12.4957C8.24526 13.2358 7.69444 14 6.91437 14H2.08563C1.30556 14 0.754741 13.2358 1.00142 12.4957L2.73952 7.28145C2.89507 6.81478 3.3318 6.5 3.82372 6.5H5.17628C5.6682 6.5 6.10493 6.81478 6.26048 7.28145ZM5.71793 3.82121L5.32166 4.20474C4.86794 4.64388 4.14408 4.63186 3.7052 4.1779L3.3344 3.79437C2.90612 3.35138 2.90612 2.64862 3.3344 2.20563L3.7052 1.8221C4.14408 1.36814 4.86794 1.35612 5.32166 1.79526L5.71793 2.17879C6.18198 2.62793 6.18198 3.37207 5.71793 3.82121Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                Sign Up
+              </NuxtLink>
             </SignedOut>
             <SignedIn>
               <UserButton class="w-[50px]" />
@@ -232,6 +228,8 @@
 </template>
 
 <script setup>
+import { NuxtLink } from '#components'
+
 const route = useRoute()
 const router = useRouter()
 
