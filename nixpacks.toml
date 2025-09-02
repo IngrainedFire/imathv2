@@ -12,9 +12,7 @@ commands = [
 ]
 
 [phases.start]
-commands = [
-  "node .output/server/index.mjs"
-]
+cmd = "node .output/server/index.mjs"
 
 [env]
 PORT = "3000"
