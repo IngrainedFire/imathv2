@@ -1,9 +1,10 @@
+<!-- components/auth/SignedOut.vue -->
 <script setup lang="ts">
-import { user } from '~/composables/useAuthState'
+import { useUserState } from '@/composables/auth/useUserState'
+
+const { user } = useUserState()
 </script>
 
 <template>
-  <div v-if="!user">
-    <slot />
-  </div>
+  <slot v-if="!user" />
 </template>

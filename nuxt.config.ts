@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+
 export default defineNuxtConfig({
   
   compatibilityDate: '2025-05-15',
@@ -24,10 +26,12 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    signUpEnabled: process.env.NUXT_PRV_SIGN_UP_ENABLED === 'true',
     public: {
-      supabaseUrl: process.env.SUPABASE_URL,
-      supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
-    }
+      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
+      supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON
+    },
+
   },
 
   vite: {
