@@ -1,5 +1,5 @@
 [phases.setup]
-packages = ["nodejs" "npm"]
+packages = ["nodejs", "npm"]
 
 [phases.install]
 commands = [
