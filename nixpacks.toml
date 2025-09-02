@@ -1,19 +1,19 @@
 [phases.setup]
-packages = ["nodejs", "npm"]
+packages = ["nodejs_20", "npm"]
 
 [phases.install]
 commands = [
-    "npm install"
+  "npm ci"
 ]
 
 [phases.build]
 commands = [
-    "npm run build"
+  "npm run build"
 ]
 
 [phases.start]
 commands = [
-    "npm run start"
+  "node .output/server/index.mjs"
 ]
 
 [env]
