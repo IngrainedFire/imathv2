@@ -1,9 +1,9 @@
 [phases.setup]
-packages = ["nodejs_20", "npm"]
+packages = ["nodejs_22", "npm"]
 
 [phases.install]
 commands = [
-  "npm ci"
+  "npm install"
 ]
 
 [phases.build]
