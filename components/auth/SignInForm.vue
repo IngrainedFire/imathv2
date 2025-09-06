@@ -18,7 +18,7 @@ const handleSignIn = async (event: Event) => {
 </script>
 
 <template>
-  <form @submit="handleSignIn" class="max-w-md mx-auto p-4 border rounded">
+  <form @submit="handleSignIn" class="max-w-md mx-auto p-4 border-4 rounded">
     <div class="mb-4">
       <label for="email" class="block mb-1">Email</label>
       <input v-model="email" type="email" id="email" required class="w-full border px-2 py-1 rounded" />
