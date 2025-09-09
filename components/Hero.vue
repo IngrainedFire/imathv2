@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section class="relative overflow-hidden m-[50px] min-h-[85dvh] border-blue border-4 rounded-3xl ">
+  <section class="relative overflow-hidden m-[50px] min-h-[85dvh] border-red border-4 rounded-3xl ">
     <div id="hero-bg" >
       <div class="w-3/4 h-full absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(87,118,255,0.5)_0%,rgba(255,100,255,0)_70%)]"></div>
     </div>
