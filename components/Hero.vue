@@ -42,7 +42,7 @@
           </AuthSignedOut>
           <AuthSignedIn>
             <NuxtLink
-              to="/grade-8/module1/the-number-system-1"
+              to="/grade-8/module-1/the-number-system-1"
               class="flex gap-[10px] justify-center items-center py-[15px] w-[200px] bg-[#FF5787] text-white rounded-[10px]"
             >
               <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">

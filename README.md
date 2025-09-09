@@ -73,3 +73,6 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+Rules of the app:
+Never cross name routes there can only be on folder or file with a route bracket called [name]

@@ -62,6 +62,5 @@
 </template>
 
 <script setup>
-const { grades, selectedGrade, currentGrade } = useGrades()
-const { navigateToLesson } = useLessons()
+const { grades, selectedGrade, currentGrade, navigateToLesson } = useGrades()
 </script>

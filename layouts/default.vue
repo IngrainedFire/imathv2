@@ -21,8 +21,5 @@ watch(user, (newUser) => {
     <main class="flex-grow">
       <slot />
     </main>
-    <footer class="p-4 text-center text-sm text-gray-500">
-      © 2025 Public First
-    </footer>
   </div>
 </template>

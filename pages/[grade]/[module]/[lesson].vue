@@ -1,27 +1,33 @@
+
 <template>
   <div>
-    <!-- Side Panel -->
-    <div :class="['absolute top-0 items-center min-h-screen w-1/4 bg-white h-full p-[15px]', open ? 'translate-x-0 duration-300' : '-translate-x-full duration-300']">
+    <!------------Side Panel------------->
+    <div 
+      :class="['absolute top-0 items-center min-h-screen w-1/4 bg-white h-full p-[15px]', open ? 'translate-x-0 duration-300' : '-translate-x-full duration-300']">
 
-      <!-- Side Panel Header -->
+      <!-- Side Panel Header (logo area) -->
       <div class="flex justify-center items-center w-full h-[80px]">
+          <!-- Logo image -->
           <img src="/assets/logos/imath-logo-light.webp" class="w-[134px] h-[60px]">
       </div>
 
-      <!-- Grade Content Ouline -->
+      <!-- Grade Content Outline -->
       <div class="min-w-full p-6">
-        <!-- Grade Selector -->
+        <!-- Grade Selector Dropdown -->
         <div class="relative w-full mb-6">
+          <!-- Dropdown bound to selectedGradeId, triggers onGradeChange -->
           <select
             v-model="selectedGradeId"
             @change="onGradeChange"
             class="w-full p-3 border-2 border-pink-200 rounded-lg text-pink-600 font-medium focus:outline-none focus:border-pink-400"
           >
+            <!-- Loop over all grades and render as options -->
             <option v-for="grade in grades" :key="grade.id" :value="grade.id">
               {{ grade.name }}
             </option>
           </select>
           
+          <!-- Custom dropdown arrow icon -->
           <svg
             class="w-4 h-4 text-pink-600 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none"
             fill="none"
@@ -34,12 +40,13 @@
 
         <!-- Module Navigation -->
         <nav class="space-y-2">
+          <!-- Loop over modules in the current grade -->
           <div
             v-for="module in currentGrade?.modules || []"
             :key="module.id"
             class="module-section"
           >
-            <!-- Module Header -->
+            <!-- Module Header button (expand/collapse) -->
             <button
               @click="toggleModule(module.id)"
               class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-50 rounded-lg transition-colors"
@@ -47,7 +54,9 @@
                 'bg-gray-50': expandedModules.includes(module.id)
               }"
             >
+              <!-- Module title -->
               <span class="font-medium text-gray-900">{{ module.subject }}</span>
+              <!-- Expand/collapse arrow -->
               <svg
                 class="w-4 h-4 text-gray-500 transition-transform"
                 :class="{ 'rotate-180': expandedModules.includes(module.id) }"
@@ -59,11 +68,12 @@
               </svg>
             </button>
 
-            <!-- Lessons List -->
+            <!-- Lessons List (only shown if module expanded) -->
             <div
               v-if="expandedModules.includes(module.id)"
               class="ml-4 mt-2 space-y-1"
             >
+              <!-- Loop over lessons in module -->
               <button
                 v-for="lesson in module.lessons"
                 :key="lesson.id"
@@ -81,52 +91,69 @@
         </nav>
       </div>
     </div>
-    <!-- Main -->
-    <div :class="[ 'max-h-[calc(100vh-30px)] overflow-y-scroll bg-white my-[15px]  mr-[15px] rounded-[10px] border-4 px-[15px]', open ? 'ml-[25%] duration-300' : 'ml-[15px] duration-300' ]" >
+
+    <!------------Main Content Section------------->
+    <div 
+      :class="[ 'max-h-[calc(100vh-30px)] overflow-y-scroll bg-white my-[15px]  mr-[15px] rounded-[10px] border-4 px-[15px]', open ? 'ml-[25%] duration-300' : 'ml-[15px] duration-300' ]" >
+      
       <!-- Lesson Header -->
       <div class="flex justify-between items-center h-[80px]">
+          <!-- Toggle side panel button -->
           <button
           @click="open = !open"
           class="p-2 bg-gray-800 text-white rounded"
           >Toggle</button>
+
+          <!-- Breadcrumb section -->
           <div class="flex items-center">
               <div class="ml-4 text-gray-600">
-                
-
-                <!-- Breadcrumb -->
                 <nav class="flex items-center space-x-2 text-sm text-gray-600">
+                  <!-- Current grade -->
                   <div class="flex items-center space-x-2">
                     <span class="font-medium">{{ currentGrade?.name }}</span>
                   </div>
+                  <!-- Arrow separator -->
                   <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
+                  <!-- Current module -->
                   <span>{{ currentModule?.subject }}</span>
+                  <!-- Arrow separator -->
                   <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
+                  <!-- Current lesson -->
                   <span>{{ currentLesson?.title }}</span>
                 </nav>
               </div>
           </div>
+
+          <!-- Logout button (only when signed in) -->
           <div class="flex justify-center gap-[20px]">
             <AuthSignedIn>
               <AuthLogoutButton />
             </AuthSignedIn>
           </div>
       </div>
+
+      <!-- Lesson body -->
       <div class="flex-1 p-8">
         <div class="max-w-6xl mx-auto">
-          <!-- Lesson Header -->
+          <!-- Video + Lesson header -->
           <div class="bg-white rounded-xl border border-gray-200 p-8 mb-6">
+            <!-- Vimeo video embed -->
             <div class="flex flex-col rounded-lg mb-4 items-center justify-center mx-auto h-[50%]">
-                <iframe id="vimeo-player" src="https://player.vimeo.com/video/1071326882" class="flex flex-shrink w-full h-[500px] rounded" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <iframe id="vimeo-player" :src="`https://player.vimeo.com/video/${currentLesson?.video}`" class="flex flex-shrink w-full h-[500px] rounded" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
+            <!-- Lesson info row -->
             <div class="flex items-center justify-between mb-6">
               <div>
+                <!-- Module subject -->
                 <p class="text-sm text-gray-500 mb-2">{{ currentModule?.subject }}</p>
+                <!-- Lesson title -->
                 <h1 class="text-3xl font-bold text-gray-900">{{ currentLesson?.title }}</h1>
               </div>
+              <!-- Lesson duration -->
               <div class="text-2xl font-bold text-gray-900">
                 {{ currentLesson?.duration }}
               </div>
@@ -135,6 +162,7 @@
             <!-- Lesson Tabs -->
             <div class="border-b border-gray-200">
               <nav class="flex space-x-8">
+                <!-- Render each tab button -->
                 <button
                   v-for="tab in lessonTabs"
                   :key="tab.id"
@@ -147,40 +175,13 @@
                 >
                   {{ tab.name }}
                 </button>
-
-                <!-- Lesson Navigation Buttons 
-                <div class="flex justify-between items-center mt-8">
-                  <button
-                    v-if="previousLesson"
-                    @click="goToPreviousLesson"
-                    class="flex items-center space-x-2 px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
-                  >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                    <span>Previous</span>
-                  </button>
-                  <div v-else></div>
-
-                  <button
-                    v-if="nextLesson"
-                    @click="goToNextLesson"
-                    class="flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    <span>Next</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                  </button>
-                  <div v-else></div>
-                </div>
-                -->
               </nav>
             </div>
           </div>
 
-          <!-- Lesson Content -->
+          <!-- Lesson Content Tabs -->
           <div class="bg-white rounded-xl border border-gray-200 p-8 min-h-[600px]">
+            <!-- Summary tab -->
             <div v-if="activeTab === 'summary'" class="lesson-content">
               <h2 class="text-xl font-semibold mb-4">Lesson Summary</h2>
               <div class="prose max-w-none">
@@ -191,6 +192,7 @@
               </div>
             </div>
 
+            <!-- Notes tab -->
             <div v-else-if="activeTab === 'notes'" class="lesson-content">
               <h2 class="text-xl font-semibold mb-4">Lesson Notes</h2>
               <div class="prose max-w-none">
@@ -200,6 +202,7 @@
               </div>
             </div>
 
+            <!-- Practice tab -->
             <div v-else-if="activeTab === 'practice'" class="lesson-content">
               <h2 class="text-xl font-semibold mb-4">Practice Exercises</h2>
               <div class="prose max-w-none">
@@ -212,69 +215,70 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
 <script setup>
-definePageMeta({
-  layout: 'public'
-})
 
-import { NuxtLink } from '#components'
-import { ref } from 'vue'
+/* =========================
+   PAGE SETUP
+========================= */
 
-// Sidepanel Toggle
-const open = ref(true)
+definePageMeta({ layout: 'default' })
 
 
+/* =========================
+   IMPORTS & COMPOSABLES
+========================= */
+
+import { ref, computed, onMounted, watch } from 'vue'
 const route = useRoute()
 const router = useRouter()
 
-// Composables
-const { grades, getGradeById, getModuleById } = useGrades()
-const { navigateToLesson, getNextRecommendedLesson } = useLessons()
+// Custom composables for grades and lessons
+const { grades, getGradeById, navigateToLesson } = useGrades()
 
-// Extract route params
-const gradeParam = computed(() => route.params.grade)
-const moduleParam = computed(() => route.params.module)
-const lessonParam = computed(() => route.params.lesson)
+/* =========================
+   DYNAMIC ROUTE PARAMS
+========================= */
 
-// Convert URL params back to IDs
-const selectedGradeId = ref('')
-const currentGrade = ref(null)
-const currentModule = ref(null)
-const currentLesson = ref(null)
+// Route params from URL
+const gradeParam = computed(() => route.params.grade)   // [grade] route
+const moduleParam = computed(() => route.params.module) // [module] route
+const lessonParam = computed(() => route.params.lesson) // [lesson] route
 
-// UI State
-const expandedModules = ref([])
-const activeTab = ref('summary')
+/* =========================
+   UNIVERSAL STATE
+========================= */
 
-// Lesson tabs
-const lessonTabs = [
-  { id: 'summary', name: 'Summary' },
-  { id: 'notes', name: 'Notes' },
-  { id: 'practice', name: 'Practice' }
-]
+const selectedGradeId = ref('') // Currently selected grade ID
+const currentGrade = ref(null)  // Current grade object
+const currentModule = ref(null) // Current module object
+const currentLesson = ref(null) // Current lesson object
 
-// Initialize data based on route params
+/* =========================
+   ROUTE PROCESSOR
+========================= */
+
+// Updates reactive state based on current route params
 const initializeFromRoute = () => {
-  // Find grade by converting param back to ID
   const gradeId = gradeParam.value.replace('grade-', 'grade')
   selectedGradeId.value = gradeId
   currentGrade.value = getGradeById(gradeId)
   
   if (currentGrade.value) {
-    // Find module by subject name
+    // Find module matching URL param
     currentModule.value = currentGrade.value.modules.find(module => 
       module.subject.toLowerCase().replace(/\s+/g, '-') === moduleParam.value ||
       module.id.toLowerCase().replace(/\s+/g, '-') === moduleParam.value
     )
     
     if (currentModule.value) {
-      // Expand current module
+      // Expand module in sidebar
       expandedModules.value = [currentModule.value.id]
       
-      // Find lesson
+      // Find lesson matching URL param
       currentLesson.value = currentModule.value.lessons.find(lesson => 
         lesson.slug === lessonParam.value ||
         lesson.title.toLowerCase().replace(/\s+/g, '-') === lessonParam.value
@@ -283,43 +287,17 @@ const initializeFromRoute = () => {
   }
 }
 
-// Navigation helpers
-const nextLesson = computed(() => {
-  if (!currentGrade.value || !currentModule.value || !currentLesson.value) return null
-  return getNextRecommendedLesson(currentGrade.value.id, currentModule.value.id, currentLesson.value.id)
-})
+/* =========================
+   METHODS / HELPERS
+========================= */
 
-const previousLesson = computed(() => {
-  if (!currentModule.value || !currentLesson.value) return null
-  
-  const currentLessonIndex = currentModule.value.lessons.findIndex(
-    lesson => lesson.id === currentLesson.value.id
-  )
-  
-  if (currentLessonIndex > 0) {
-    return currentModule.value.lessons[currentLessonIndex - 1]
-  }
-  
-  // Could implement previous module logic here
-  return null
-})
-
-// Methods
-const toggleModule = (moduleId) => {
-  const index = expandedModules.value.indexOf(moduleId)
-  if (index > -1) {
-    expandedModules.value.splice(index, 1)
-  } else {
-    expandedModules.value.push(moduleId)
-  }
-}
-
+// Check if a lesson is currently active
 const isCurrentLesson = (lesson) => {
   return currentLesson.value && lesson.id === currentLesson.value.id
 }
 
+// Navigate to the first lesson of a newly selected grade
 const onGradeChange = () => {
-  // Navigate to first lesson of first module in selected grade
   const grade = getGradeById(selectedGradeId.value)
   if (grade && grade.modules.length > 0 && grade.modules[0].lessons.length > 0) {
     const firstModule = grade.modules[0]
@@ -328,28 +306,48 @@ const onGradeChange = () => {
   }
 }
 
-const goToNextLesson = () => {
-  if (nextLesson.value) {
-    navigateToLesson(nextLesson.value, currentGrade.value.id, currentModule.value.id)
-  }
+/* =========================
+   SIDEBAR STATE & METHODS
+========================= */
+
+const open = ref(true)             // Sidebar open/closed state
+const expandedModules = ref([])    // Tracks expanded modules in sidebar
+
+// Expand or collapse a module in the sidebar
+const toggleModule = (moduleId) => {
+  const index = expandedModules.value.indexOf(moduleId)
+  if (index > -1) expandedModules.value.splice(index, 1) // collapse
+  else expandedModules.value.push(moduleId)               // expand
 }
 
-const goToPreviousLesson = () => {
-  if (previousLesson.value) {
-    navigateToLesson(previousLesson.value, currentGrade.value.id, currentModule.value.id)
-  }
-}
+/* =========================
+   CONTENT SECTION STATE
+========================= */
 
-// Initialize on mount and watch for route changes
+const activeTab = ref('summary')   // Active tab in lesson content
+const lessonTabs = [               // Tabs configuration
+  { id: 'summary', name: 'Summary' },
+  { id: 'notes', name: 'Notes' },
+  { id: 'practice', name: 'Practice' }
+]
+
+/* =========================
+   LIFECYCLE HOOKS
+========================= */
+
+// Initialize state on page load
 onMounted(() => {
   initializeFromRoute()
 })
 
+// Re-run initialization when route params change
 watch(() => route.params, () => {
   initializeFromRoute()
 }, { deep: true })
 
-// SEO
+/* =========================
+   SEO SETUP
+========================= */
 useHead({
   title: computed(() => 
     currentLesson.value 
@@ -357,34 +355,30 @@ useHead({
       : 'iMath'
   )
 })
+
 </script>
 
 <style scoped>
+/* Animate lesson content fade-in */
 .lesson-content {
   animation: fadeIn 0.3s ease-in-out;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Rotate arrow */
 .rotate-180 {
   transform: rotate(180deg);
 }
 
+/* Custom select styling */
 select {
-  /* Remove default appearance */
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  
-  /* Padding to make room for custom arrow */
   padding-right: 2.5rem;
-  
-  /* Position relative for the arrow */
   position: relative;
 }
-
 </style>
-
