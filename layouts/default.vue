@@ -17,7 +17,7 @@ watch(user, (newUser) => {
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col font-mobo font-medium text-slate-950">
+  <div class="h-vh flex flex-col font-mobo font-medium text-slate-950">
     <main class="flex-grow">
       <slot />
     </main>

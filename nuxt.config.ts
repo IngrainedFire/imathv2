@@ -17,6 +17,12 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
   ],
 
+  plugins: ['~/plugins/viewport.client.js'],
+
+  css: [
+    '~/assets/css/globals.css',
+  ],
+
   googleFonts: {
     families: {
       Fredoka: [300, 400, 500, 600, 700],
