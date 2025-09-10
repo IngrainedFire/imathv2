@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section class="relative overflow-hidden m-[50px] min-h-[85dvh] border-4 rounded-3xl">
+  <section class="relative overflow-hidden m-[15px] min-h-[85dvh] border-4 rounded-3xl lg:m-[50px]">
     <div id="hero-bg" >
       <div class="w-3/4 h-full absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(87,118,255,0.5)_0%,rgba(255,100,255,0)_70%)]"></div>
     </div>
@@ -20,7 +20,7 @@
           </AuthSignedOut>
       </div>
       <div id="hero-content" class="flex flex-grow flex-col justify-center items-center">
-        <h1 id="hero-heading" class="font-fredoko font-[800] text-4xl text-[#192764] w-[60%] text-center">We make free videos for you to better understand Math</h1>
+        <h1 id="hero-heading" class="font-fredoko font-[800] text-4xl text-[#192764] w-[80%] text-center lg:w-[60%]">We make free videos for you to better understand Math</h1>
         <div id="hero-buttons" class="w-full p-[50px] flex justify-center gap-[20px]">
           <AuthSignedOut>
             <NuxtLink to="/sign-up" class="flex gap-[10px] justify-center items-center  py-[15px] px-[20px] bg-[#192764] text-white rounded-[10px]">
