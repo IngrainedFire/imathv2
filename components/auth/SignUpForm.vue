@@ -7,7 +7,7 @@ const handleSignUp = (event: Event) => {
 </script>
 
 <template>
-  <form @submit="handleSignUp" class="max-w-md mx-auto p-4 border rounded">
+  <form @submit="handleSignUp" class="max-w-md mx-auto p-4  rounded">
     <div class="mb-4">
       <label for="email" class="block mb-1">Email</label>
       <input type="email" id="email" required class="w-full border px-2 py-1 rounded" />
