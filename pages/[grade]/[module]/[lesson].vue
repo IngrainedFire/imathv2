@@ -3,7 +3,7 @@
   <div>
     <!------------Side Panel------------->
     <div 
-      :class="[' flex flex-col z-20 absolute top-0 items-center w-[300px] sm:w-[400px] min-h-screen overflow-hidden  bg-white h-screen p-[15px]', open ? 'translate-x-0 duration-300' : '-translate-x-full duration-300']">
+      :class="[' flex flex-col z-20 absolute top-0 items-center w-[300px] sm:w-[400px] min-h-[85dvh] overflow-hidden  bg-white h-[85dvh] p-[15px]', open ? 'translate-x-0 duration-300' : '-translate-x-full duration-300']">
 
       <!-- Side Panel Header (logo area) -->
       <div class="flex justify-between items-center w-full h-[80px]">
@@ -95,11 +95,11 @@
         </nav>
       </div>
     </div>
-    <div :class="['opacity-[20%] absolute top-0 h-screen w-screen z-10 bg-[#192764]', open ? 'block lg:hidden' : 'hidden' ]">
+    <div :class="['opacity-[20%] absolute top-0 h-[85dvh] w-screen z-10 bg-[#192764]', open ? 'block lg:hidden' : 'hidden' ]">
     </div>
     <!------------Main Content Section------------->
     <div 
-      :class="[ 'z-0 max-h-[calc(100vh-30px)] overflow-y-scroll bg-white my-[15px]  mr-[15px] rounded-[10px] border-4 px-[15px]', open ? 'ml-[15px] lg:ml-[400px] duration-300' : 'ml-[15px] duration-300' ]" >
+      :class="[ 'z-0 max-h-[calc(85dvh-30px)] overflow-y-scroll bg-white my-[15px]  mr-[15px] rounded-[10px] border-4 px-[15px]', open ? 'ml-[15px] lg:ml-[400px] duration-300' : 'ml-[15px] duration-300' ]" >
       
       <!-- Lesson Header -->
       <div class="flex justify-between items-center h-[80px]">
