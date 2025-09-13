@@ -18,6 +18,11 @@ export const useGrades = () => {
           subject: 'Whole Numbers',
           lessons: [
             { id: 'lesson1', title: '1. The Number System', duration: '12:25', slug: 'the-number-system-1', video: '1071326882' },
+            { id: 'lesson1', title: '1. The Number System', duration: '12:25', slug: 'the-number-system-1', video: '1071326882' },
+            { id: 'lesson1', title: '1. The Number System', duration: '12:25', slug: 'the-number-system-1', video: '1071326882' },
+            { id: 'lesson1', title: '1. The Number System', duration: '12:25', slug: 'the-number-system-1', video: '1071326882' },
+            { id: 'lesson1', title: '1. The Number System', duration: '12:25', slug: 'the-number-system-1', video: '1071326882' },
+            { id: 'lesson1', title: '1. The Number System', duration: '12:25', slug: 'the-number-system-1', video: '1071326882' },
             { id: 'lesson2', title: '2. hhfjhdgfdhgf', duration: '12:25', slug: 'the-number-system-2' }
           ]
         },

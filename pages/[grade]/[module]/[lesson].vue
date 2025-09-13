@@ -3,16 +3,20 @@
   <div>
     <!------------Side Panel------------->
     <div 
-      :class="['absolute top-0 items-center min-h-screen w-1/4 bg-white h-full p-[15px]', open ? 'translate-x-0 duration-300' : '-translate-x-full duration-300']">
+      :class="[' flex flex-col z-20 absolute top-0 items-center w-[300px] sm:w-[400px] min-h-screen overflow-hidden  bg-white h-screen p-[15px]', open ? 'translate-x-0 duration-300' : '-translate-x-full duration-300']">
 
       <!-- Side Panel Header (logo area) -->
-      <div class="flex justify-center items-center w-full h-[80px]">
+      <div class="flex justify-between items-center w-full h-[80px]">
           <!-- Logo image -->
           <img src="/assets/logos/imath-logo-light.webp" class="w-[134px] h-[60px]">
+          <button
+          @click="open = !open"
+          class="p-2 bg-gray-800 text-white rounded lg:hidden"
+          >Toggle</button>
       </div>
 
       <!-- Grade Content Outline -->
-      <div class="min-w-full p-6">
+      <div class="flex flex-col min-w-full flex-grow h-[52px]">
         <!-- Grade Selector Dropdown -->
         <div class="relative w-full mb-6">
           <!-- Dropdown bound to selectedGradeId, triggers onGradeChange -->
@@ -39,7 +43,7 @@
         </div>
 
         <!-- Module Navigation -->
-        <nav class="space-y-2">
+        <nav class="space-y-2 overflow-y-scroll flex-grow">
           <!-- Loop over modules in the current grade -->
           <div
             v-for="module in currentGrade?.modules || []"
@@ -91,10 +95,11 @@
         </nav>
       </div>
     </div>
-
+    <div :class="['opacity-[20%] absolute top-0 h-screen w-screen z-10 bg-[#192764]', open ? 'block lg:hidden' : 'hidden' ]">
+    </div>
     <!------------Main Content Section------------->
     <div 
-      :class="[ 'max-h-[calc(100vh-30px)] overflow-y-scroll bg-white my-[15px]  mr-[15px] rounded-[10px] border-4 px-[15px]', open ? 'ml-[25%] duration-300' : 'ml-[15px] duration-300' ]" >
+      :class="[ 'z-0 max-h-[calc(100vh-30px)] overflow-y-scroll bg-white my-[15px]  mr-[15px] rounded-[10px] border-4 px-[15px]', open ? 'ml-[15px] lg:ml-[400px] duration-300' : 'ml-[15px] duration-300' ]" >
       
       <!-- Lesson Header -->
       <div class="flex justify-between items-center h-[80px]">
@@ -232,6 +237,7 @@ definePageMeta({ layout: 'default' })
    IMPORTS & COMPOSABLES
 ========================= */
 
+import { useMediaQuery } from '~/composables/useMediaQuery'
 import { ref, computed, onMounted, watch } from 'vue'
 const route = useRoute()
 const router = useRouter()
@@ -310,7 +316,9 @@ const onGradeChange = () => {
    SIDEBAR STATE & METHODS
 ========================= */
 
-const open = ref(true)             // Sidebar open/closed state
+const open = useMediaQuery('(min-width: 1025px)')           // Sidebar open/closed state
+
+
 const expandedModules = ref([])    // Tracks expanded modules in sidebar
 
 // Expand or collapse a module in the sidebar
